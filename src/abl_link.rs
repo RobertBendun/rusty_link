@@ -225,4 +225,14 @@ impl AblLink {
             );
         }
     }
+
+    /// Convert time in microseconds from host to global host
+    pub fn host_to_ghost(&self, host: i64) -> i64 {
+        unsafe { abl_link_host_to_ghost(self.link, host) }
+    }
+
+    /// Convert time in microseconds from global host to host
+    pub fn ghost_to_host(&self, ghost: i64) -> i64 {
+        unsafe { abl_link_ghost_to_host(self.link, ghost) }
+    }
 }
